@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skin 4
   m_EditorClassIdentifier: 
   itemName: Skin 4
-  itemPrice: 50
+  itemPrice: 10
   itemIcon: {fileID: 2113500292, guid: cadb87643e5d6c840940b25f5c74b716, type: 3}
   itemType: 1
   isEquipped: 0

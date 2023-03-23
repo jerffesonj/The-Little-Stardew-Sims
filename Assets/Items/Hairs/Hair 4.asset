@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hair 4
   m_EditorClassIdentifier: 
   itemName: Hair 4
-  itemPrice: 50
+  itemPrice: 1000
   itemIcon: {fileID: 992444033, guid: cadb87643e5d6c840940b25f5c74b716, type: 3}
   itemType: 0
   isEquipped: 0

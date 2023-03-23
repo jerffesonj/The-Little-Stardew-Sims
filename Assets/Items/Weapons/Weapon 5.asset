@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon 5
   m_EditorClassIdentifier: 
   itemName: Weapon
-  itemPrice: 50
+  itemPrice: 100
   itemIcon: {fileID: -1903242092, guid: cadb87643e5d6c840940b25f5c74b716, type: 3}
   itemType: 3
   isEquipped: 0

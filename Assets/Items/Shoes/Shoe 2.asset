@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shoe 2
   m_EditorClassIdentifier: 
   itemName: Shoe
-  itemPrice: 50
+  itemPrice: 700
   itemIcon: {fileID: 911499351, guid: cadb87643e5d6c840940b25f5c74b716, type: 3}
   itemType: 4
   isEquipped: 0

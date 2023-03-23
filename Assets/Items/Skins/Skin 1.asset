@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skin 1
   m_EditorClassIdentifier: 
   itemName: Shiny Helmet
-  itemPrice: 50
+  itemPrice: 10
   itemIcon: {fileID: 1463658087, guid: cadb87643e5d6c840940b25f5c74b716, type: 3}
   itemType: 1
   isEquipped: 1

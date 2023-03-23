@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shirt 3
   m_EditorClassIdentifier: 
   itemName: Shirt
-  itemPrice: 100
+  itemPrice: 350
   itemIcon: {fileID: -1289707582, guid: cadb87643e5d6c840940b25f5c74b716, type: 3}
   itemType: 2
   isEquipped: 0
