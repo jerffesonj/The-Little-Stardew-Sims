@@ -15,5 +15,4 @@ MonoBehaviour:
   itemName: Skin 3
   itemPrice: 10
   itemIcon: {fileID: 577966613, guid: cadb87643e5d6c840940b25f5c74b716, type: 3}
-  itemType: 1
-  isEquipped: 0
+  typeItem: 1

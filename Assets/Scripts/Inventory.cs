@@ -4,8 +4,10 @@ using UnityEngine;
 
 public abstract class Inventory : MonoBehaviour
 {
-    public List<ItemScriptable> items = new List<ItemScriptable>();
-    
+    [SerializeField] private List<ItemScriptable> items = new List<ItemScriptable>();
+
+    public List<ItemScriptable> Items { get => items; }
+
     protected void Awake()
     {
         ResetEquippedItems();
@@ -15,7 +17,7 @@ public abstract class Inventory : MonoBehaviour
     {
         foreach (ItemScriptable item in items)
         {
-            item.isEquipped = false;
+            item.IsEquipped = false;
         }
     }
 
@@ -24,7 +26,7 @@ public abstract class Inventory : MonoBehaviour
         int counter = 0;
         foreach (ItemScriptable item in items)
         {
-            if (item.itemType == ItemScriptable.ItemType.Skin)
+            if (item.TypeItem == ItemScriptable.ItemType.Skin)
                 counter++;
         }
 

@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class ShopkeeperCanvasInventory : CanvasInventory
 {
-    MoneyScript playerMoney;
-    public CanvasInventory playerCanvasInventory;
+    [SerializeField] private CanvasInventory playerCanvasInventory;
+    private MoneyScript playerMoney;
 
-    // Start is called before the first frame update
     void Start()
     {
         base.Start();
@@ -21,7 +20,7 @@ public class ShopkeeperCanvasInventory : CanvasInventory
         if (itemInformation == null)
             return;
 
-        if (itemInformation.item.itemPrice > playerMoney.Money)
+        if (itemInformation.Item.ItemPrice > playerMoney.Money)
         {
             inventoryInformation.ShowInformation("No cash");
             return;
@@ -29,9 +28,9 @@ public class ShopkeeperCanvasInventory : CanvasInventory
 
         inventoryInformation.ShowInformation("Item purchased");
 
-        playerMoney.RemoveMoney(itemInformation.item.itemPrice);
+        playerMoney.RemoveMoney(itemInformation.Item.ItemPrice);
 
-        playerCanvasInventory.AddItem(itemInformation.item);
+        playerCanvasInventory.AddItem(itemInformation.Item);
 
         RemoveItem();
     }

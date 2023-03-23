@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class InventoryInformation : MonoBehaviour
 {
-    public GameObject itemInformation;
-    public TMP_Text itemInformationText;
+    [SerializeField] private GameObject itemInformation;
+    [SerializeField] private TMP_Text itemInformationText;
 
     Coroutine routine = null;
     public void ShowInformation(string text)

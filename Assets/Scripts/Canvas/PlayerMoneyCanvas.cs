@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class PlayerMoneyCanvas : MonoBehaviour
 {
-    public TMP_Text moneyText;
-    // Start is called before the first frame update
+    [SerializeField] private TMP_Text moneyText;
     void Awake()
     {
         MoneyScript.onChange += ChangeMoneyValue;

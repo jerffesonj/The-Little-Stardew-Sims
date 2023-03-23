@@ -6,12 +6,13 @@ using UnityEngine;
 public class CanvasInventory : MonoBehaviour
 {
     [SerializeField] protected Inventory inventory;
-    
+
+    [Header("Instantiate objects")]
     [SerializeField] private GameObject itemCanvasPrefab;
     [SerializeField] private RectTransform itemCanvasParent;
-    [SerializeField] private List<GameObject> itemsCanvas;
+    [SerializeField] protected List<GameObject> itemsCanvas;
 
-    [SerializeField] private ItemCanvasInformation itemSelected;
+    private ItemCanvasInformation itemSelected;
     protected InventoryInformation inventoryInformation;
 
     public ItemCanvasInformation ItemSelected { get => itemSelected; set => itemSelected = value; }
@@ -30,19 +31,19 @@ public class CanvasInventory : MonoBehaviour
     {
         ResetInventory();
 
-        for (int i = 0; i < inventory.items.Count; i++)
+        for (int i = 0; i < inventory.Items.Count; i++)
         {
             GameObject itemCanvasClone = null;
             if (i < itemsCanvas.Count)
             {
                 itemCanvasClone = itemsCanvas[i];
-                itemCanvasClone.GetComponent<ItemCanvasInformation>().SetInformation(inventory.items[i]);
+                itemCanvasClone.GetComponent<ItemCanvasInformation>().SetInformation(inventory.Items[i]);
                 itemCanvasClone.SetActive(true);
             }
             else
             {
                 itemCanvasClone = InstantiateItemCanvas();
-                itemCanvasClone.GetComponent<ItemCanvasInformation>().SetInformation(inventory.items[i]);
+                itemCanvasClone.GetComponent<ItemCanvasInformation>().SetInformation(inventory.Items[i]);
             }
         }
     }
@@ -60,21 +61,21 @@ public class CanvasInventory : MonoBehaviour
     GameObject InstantiateItemCanvas()
     {
         GameObject itemCanvasClone = Instantiate(itemCanvasPrefab, itemCanvasParent);
-        itemCanvasClone.GetComponent<ItemCanvasInformation>().inventory = this;
+        itemCanvasClone.GetComponent<ItemCanvasInformation>().Inventory = this;
         itemsCanvas.Add(itemCanvasClone);
         return itemCanvasClone;
     }
    
     public void RemoveItem()
     {
-        inventory.items.Remove(ItemSelected.item);
+        inventory.Items.Remove(ItemSelected.Item);
         ItemSelected.RemoveHighlight();
         ItemSelected = null;
         UpdateInventory();
     }
     public void AddItem(ItemScriptable item)
     {
-        inventory.items.Add(item);
+        inventory.Items.Add(item);
         UpdateInventory();
     }
 

@@ -15,5 +15,4 @@ MonoBehaviour:
   itemName: Weapon
   itemPrice: 750
   itemIcon: {fileID: -732501236, guid: cadb87643e5d6c840940b25f5c74b716, type: 3}
-  itemType: 3
-  isEquipped: 0
+  typeItem: 3

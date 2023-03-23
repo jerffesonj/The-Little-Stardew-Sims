@@ -6,12 +6,19 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Item", menuName = "Item/Item", order = 1)]
 public class ItemScriptable : ScriptableObject
 {
-    public string itemName;
-    public int itemPrice;
-    public Sprite itemIcon;
-    public ItemType itemType;
+    [SerializeField] private string itemName;
+    [SerializeField] private int itemPrice;
+    [SerializeField] private Sprite itemIcon;
+    [SerializeField] private ItemType typeItem;
 
-    public bool isEquipped;
+    [SerializeField] private bool isEquipped;
+
+    public string ItemName { get => itemName; }
+    public int ItemPrice { get => itemPrice; }
+    public Sprite ItemIcon { get => itemIcon; }
+    public ItemType TypeItem { get => typeItem; }
+    public bool IsEquipped { get => isEquipped; set => isEquipped = value; }
+
     public enum ItemType
     {
         Hair,

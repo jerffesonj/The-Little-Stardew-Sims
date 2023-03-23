@@ -21,37 +21,33 @@ public class PlayerSkin : MonoBehaviour
     void Start()
     {
         UpdateItems();
-        skinItemScriptable.isEquipped = true;
+        skinItemScriptable.IsEquipped = true;
     }
 
-    void Update()
-    {
-        
-    }
     public void UpdateItems()
     {
         if (hairItemScriptable)
-            hairItemRenderer.sprite = hairItemScriptable.itemIcon;
+            hairItemRenderer.sprite = hairItemScriptable.ItemIcon;
         else
             hairItemRenderer.sprite = null;
 
         if (skinItemScriptable)
-            skinItemRenderer.sprite = skinItemScriptable.itemIcon;
+            skinItemRenderer.sprite = skinItemScriptable.ItemIcon;
         else
             skinItemRenderer.sprite = null;
 
         if (shirtItemScriptable)
-            shirtItemRenderer.sprite = shirtItemScriptable.itemIcon;
+            shirtItemRenderer.sprite = shirtItemScriptable.ItemIcon;
         else
             shirtItemRenderer.sprite = null;
 
         if (weaponItemScriptable)
-            weaponItemRenderer.sprite = weaponItemScriptable.itemIcon;
+            weaponItemRenderer.sprite = weaponItemScriptable.ItemIcon;
         else
             weaponItemRenderer.sprite = null;
 
         if (shoeItemScriptable)
-            shoeItemRenderer.sprite = shoeItemScriptable.itemIcon;
+            shoeItemRenderer.sprite = shoeItemScriptable.ItemIcon;
         else
             shoeItemRenderer.sprite = null;
 
@@ -59,7 +55,7 @@ public class PlayerSkin : MonoBehaviour
 
     public void EquipItem(ItemScriptable item)
     {
-        switch (item.itemType)
+        switch (item.TypeItem)
         {
             case ItemScriptable.ItemType.Hair:
                 UnequipItem(hairItemScriptable);
@@ -82,14 +78,14 @@ public class PlayerSkin : MonoBehaviour
                 weaponItemScriptable = item;
                 break;
         }
-        item.isEquipped = true;
+        item.IsEquipped = true;
         UpdateItems();
     }
 
     public void UnequipItem(ItemScriptable item)
     {
         if (item == null) return;
-        switch (item.itemType)
+        switch (item.TypeItem)
         {
             case ItemScriptable.ItemType.Hair:
                 hairItemScriptable = null;
@@ -107,7 +103,7 @@ public class PlayerSkin : MonoBehaviour
                 weaponItemScriptable = null;
                 break;
         }
-        item.isEquipped = false;
+        item.IsEquipped = false;
 
         UpdateItems();
     }

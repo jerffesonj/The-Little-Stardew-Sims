@@ -1,41 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
     [SerializeField] private Animator anim;
-    private Vector2 playerInput;
 
-    Rigidbody2D rb;
+    private PlayerInput playerInput;
+    private Vector2 moveVector;
+    private Rigidbody2D rb;
+    private bool isMoving = false;
 
-    public bool isMoving = false;
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        playerInput = new PlayerInput();
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        float correctMovementSpeed = movementSpeed;
-
-        playerInput.x = Input.GetAxis("Horizontal");
-        playerInput.y = Input.GetAxis("Vertical");
-        playerInput = Vector2.ClampMagnitude(playerInput, 1);
-
-        rb.velocity = new Vector3(playerInput.x, playerInput.y, 0) * correctMovementSpeed;
-
-        isMoving = rb.velocity != Vector2.zero;
-        
-        anim.SetBool("Moving", isMoving);
+        rb.velocity = new Vector3(moveVector.x, moveVector.y, 0) * movementSpeed;
     }
 
     public void StopMovement()
     {
         rb.velocity = Vector2.zero;
+    }
 
+    private void OnEnable()
+    {
+        playerInput.Enable();
+        playerInput.Player.Movement.performed += OnMovementPerformed;
+        playerInput.Player.Movement.canceled += OnMovementCancelled;
+    }
+    private void OnDisable()
+    {
+        playerInput.Disable();
+        playerInput.Player.Movement.performed -= OnMovementPerformed;
+        playerInput.Player.Movement.canceled -= OnMovementCancelled;
+    }
+
+    void OnMovementPerformed(InputAction.CallbackContext value)
+    {
+        moveVector = value.ReadValue<Vector2>();
+        isMoving = true;
+        anim.SetBool("Moving", isMoving);
+    }
+
+    void OnMovementCancelled(InputAction.CallbackContext value)
+    {
+        moveVector = Vector2.zero;
+        isMoving = false;
+        anim.SetBool("Moving", isMoving);
     }
 }

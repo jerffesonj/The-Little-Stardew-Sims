@@ -6,21 +6,30 @@ using UnityEngine.UI;
 
 public class ItemCanvasInformation : MonoBehaviour
 {
-    public TMP_Text itemNameText;
-    public Image itemIconImage;
-    public TMP_Text itemPriceText;
-    public CanvasInventory inventory;
-    public ItemScriptable item;
-    public GameObject selectionHighlight;
-    public GameObject equippedIndicator;
+    [Header("Texts")]
+    [SerializeField] private TMP_Text itemNameText;
+    [SerializeField] private TMP_Text itemPriceText;
+
+    [Header("Item Icon")]
+    [SerializeField] private Image itemIconImage;
+
+    [Header("GameObjects")]
+    [SerializeField] private GameObject selectionHighlight;
+    [SerializeField] private GameObject equippedIndicator;
+    
+    private CanvasInventory inventory;
+    private ItemScriptable item;
+
+    public ItemScriptable Item { get => item; }
+    public CanvasInventory Inventory { get => inventory; set => inventory = value; }
 
     public void SetInformation(ItemScriptable item)
     {
-        itemNameText.text = item.itemName;
-        itemIconImage.sprite = item.itemIcon;
-        itemPriceText.text = item.itemPrice.ToString();
         this.item = item;
-        if (item.isEquipped)
+        itemNameText.text = item.ItemName;
+        itemIconImage.sprite = item.ItemIcon;
+        itemPriceText.text = item.ItemPrice.ToString();
+        if (item.IsEquipped)
             SetEquippedIndicator(true);
     }
 
@@ -36,6 +45,7 @@ public class ItemCanvasInformation : MonoBehaviour
         itemPriceText.text = "";
         SetEquippedIndicator(false);
     }
+
     public void SetCurrentInventoryCanvasObject()
     {
         if(inventory.ItemSelected != null)

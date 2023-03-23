@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ShopkeeperScript : Inventory
 {
-    public GameObject shopButton;
-
-    public PlayerMovement playerMovement;
+    [SerializeField] private GameObject shopButton;
+    private PlayerMovement playerMovement;
 
     private void Awake()
     {
         base.Awake();
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -5,21 +5,10 @@ using UnityEngine;
 
 public class Interactions : MonoBehaviour
 {
-    public InteractionScriptable interactionScriptable;
-    public GameObject canvas;
-    public TMP_Text phraseText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    [SerializeField] private InteractionScriptable interactionScriptable;
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private TMP_Text phraseText;
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

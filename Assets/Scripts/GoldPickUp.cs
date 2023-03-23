@@ -4,19 +4,7 @@ using UnityEngine;
 
 public class GoldPickUp : MonoBehaviour
 {
-    public int coins;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    [SerializeField] private int coins;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

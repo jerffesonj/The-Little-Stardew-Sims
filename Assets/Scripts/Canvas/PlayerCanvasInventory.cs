@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class PlayerCanvasInventory : CanvasInventory
 {
-    public CanvasInventory shopCanvasInventory;
+    [SerializeField] private CanvasInventory shopCanvasInventory;
     
     private MoneyScript playerMoney;
-
 
     void Start()
     {
@@ -18,10 +17,26 @@ public class PlayerCanvasInventory : CanvasInventory
 
     public void EquipItem()
     {
-        if (ItemSelected.item == null)
+        if (ItemSelected.Item == null)
             return;
+
+        inventory.GetComponent<PlayerSkin>().EquipItem(ItemSelected.Item);
+
+        ResetEquippedIndicator(ItemSelected.Item);
         ItemSelected.SetEquippedIndicator(true);
-        inventory.GetComponent<PlayerSkin>().EquipItem(ItemSelected.item);
+    }
+
+    void ResetEquippedIndicator(ItemScriptable itemSelected)
+    {
+        foreach(GameObject item in itemsCanvas)
+        {
+            ItemCanvasInformation itemCanvas = item.GetComponent<ItemCanvasInformation>();
+
+            if(itemSelected.TypeItem == itemCanvas.Item.TypeItem)
+            {
+                itemCanvas.SetEquippedIndicator(false);
+            }
+        }
     }
 
     public void SellItem()
@@ -30,33 +45,39 @@ public class PlayerCanvasInventory : CanvasInventory
         if (itemData == null)
             return;
 
-        if(itemData.item.itemType == ItemScriptable.ItemType.Skin)
+        if(itemData.Item.TypeItem == ItemScriptable.ItemType.Skin)
         {
-            if(inventory.NumberOfSkinsOnInventory() <= 1 || itemData.item.isEquipped)
+            if(inventory.NumberOfSkinsOnInventory() <= 1 || itemData.Item.IsEquipped)
             {
 
                 inventoryInformation.ShowInformation("Can't sell item");
                 return;
             }
         }
-        playerMoney.AddMoney(itemData.item.itemPrice);
+        playerMoney.AddMoney(itemData.Item.ItemPrice);
 
-        shopCanvasInventory.AddItem(itemData.item);
+        shopCanvasInventory.AddItem(itemData.Item);
         RemoveItem();
-        UnequipItem(itemData.item);
+        UnequipItem(itemData.Item);
     }
     public void UnequipItem()
     {
-        UnequipItem(ItemSelected.item);
+        UnequipItem(ItemSelected.Item);
     }
 
     public void UnequipItem(ItemScriptable item)
     {
         if (item == null)
             return;
-        if (item.itemType == ItemScriptable.ItemType.Skin)
+        if (!item.IsEquipped)
         {
-            if (inventory.NumberOfSkinsOnInventory() <= 1 || item.isEquipped)
+            inventoryInformation.ShowInformation("Item not equipped");
+            return;
+        }
+
+        if (item.TypeItem == ItemScriptable.ItemType.Skin)
+        {
+            if (inventory.NumberOfSkinsOnInventory() <= 1 || item.IsEquipped)
             {
                 inventoryInformation.ShowInformation("Can't unequip");
                 return;
