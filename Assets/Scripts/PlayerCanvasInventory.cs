@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class PlayerCanvasInventory : CanvasInventory
 {
     public CanvasInventory shopCanvasInventory;
+    public MoneyScript playerMoney;
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
+        playerMoney = inventory.GetComponent<MoneyScript>();
     }
 
     // Update is called once per frame
@@ -28,8 +31,14 @@ public class PlayerCanvasInventory : CanvasInventory
         if (itemInformation == null)
             return;
 
-        inventory.items.Add(itemInformation.item);
-        UpdateInventory();
+        if (itemInformation.item.itemPrice > playerMoney.money)
+        {
+            Debug.Log("No cash");
+            return;
+        }
+        playerMoney.RemoveMoney(itemInformation.item.itemPrice);
+
+        AddItem(itemInformation.item);
 
         shopCanvasInventory.RemoveItem();
 
@@ -37,12 +46,31 @@ public class PlayerCanvasInventory : CanvasInventory
 
     public void SellItem()
     {
-        inventory.items.Remove(itemSelected.item);
+        ItemCanvasInformation itemInformation = itemSelected;
+        if (itemInformation == null)
+            return;
 
-        itemSelected.RemoveHighlight();
-        itemSelected = null;
-        UpdateInventory();
+
+        if(itemInformation.item.itemType == ItemScriptable.ItemType.Skin)
+        {
+            if(inventory.NumberOfSkinsOnInventory() <= 1 || itemInformation.item.isEquipped)
+            {
+                Debug.Log("Can't sell");
+                return;
+            }
+        }
+        playerMoney.AddMoney(itemInformation.item.itemPrice);
+
+
+
+        shopCanvasInventory.AddItem(itemInformation.item);
+        RemoveItem();
+        UnequipItem(itemInformation.item);
+    }
+    public void UnequipItem(ItemScriptable item)
+    {
+        inventory.GetComponent<PlayerSkin>().UnequipItem(item);
     }
 
-    
+
 }

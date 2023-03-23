@@ -30,4 +30,19 @@ public class OpenInventory : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    public void OpenShopkeeperInventory()
+    {
+        gameObject.SetActive(true);
+
+        PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+        playerMovement.StopMovement();
+        playerMovement.enabled = false;
+    }
+
+    public void CloseShopkeeperInventory()
+    {
+        gameObject.SetActive(false);
+        PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+        playerMovement.enabled = true;
+    }
 }

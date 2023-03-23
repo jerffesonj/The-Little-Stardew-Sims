@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShopkeeperScript : Inventory
 {
+    public GameObject shopButton;
+
+    public PlayerMovement playerMovement;
     void Start()
     {
         
@@ -18,6 +21,9 @@ public class ShopkeeperScript : Inventory
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            shopButton.SetActive(true);
+
+            
             print("Welcome");
         }
     }
@@ -25,6 +31,9 @@ public class ShopkeeperScript : Inventory
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            shopButton.SetActive(false);
+            playerMovement.enabled = true;
+
             print("Goodbye");
         }
     }

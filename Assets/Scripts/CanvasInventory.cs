@@ -13,7 +13,7 @@ public class CanvasInventory : MonoBehaviour
     // Start is called before the first frame update
     protected void Start()
     {
-        InitializeInventory();
+        //InitializeInventory();
     }
 
     // Update is called once per frame
@@ -24,8 +24,10 @@ public class CanvasInventory : MonoBehaviour
 
     void InitializeInventory()
     {
-        for (int i = 0; i < inventory.items.Count; i++)
+        print(inventory.items.Count);
+        for (int i = 0; i < inventory.items.Count -1; i++)
         {
+            print(i + " teste");
             GameObject itemCanvasClone = InstantiateItemCanvas();
             itemCanvasClone.GetComponent<ItemCanvasInformation>().SetInformation(inventory.items[i]);
         }
@@ -77,5 +79,20 @@ public class CanvasInventory : MonoBehaviour
         itemSelected = null;
         UpdateInventory();
     }
+    public void AddItem(ItemScriptable item)
+    {
+        inventory.items.Add(item);
+        
+        UpdateInventory();
+    }
 
+    public void SetInventory(Inventory inventory)
+    {
+        this.inventory = inventory;
+    }
+
+    private void OnEnable()
+    {
+        UpdateInventory();
+    }
 }

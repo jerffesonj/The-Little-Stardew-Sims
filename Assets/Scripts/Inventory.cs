@@ -16,4 +16,16 @@ public abstract class Inventory : MonoBehaviour
     {
         
     }
+
+    public int NumberOfSkinsOnInventory()
+    {
+        int counter = 0;
+        foreach (ItemScriptable item in items)
+        {
+            if (item.itemType == ItemScriptable.ItemType.Skin)
+                counter++;
+        }
+
+        return counter;
+    }
 }

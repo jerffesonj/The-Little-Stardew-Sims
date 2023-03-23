@@ -26,4 +26,10 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector3(playerInput.x, playerInput.y, 0) * correctMovementSpeed;
     }
+
+    public void StopMovement()
+    {
+        rb.velocity = Vector2.zero;
+
+    }
 }

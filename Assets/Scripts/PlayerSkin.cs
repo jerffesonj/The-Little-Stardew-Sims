@@ -29,11 +29,31 @@ public class PlayerSkin : MonoBehaviour
     }
     public void UpdateItems()
     {
-        hairItemRenderer.sprite = hairItemScriptable.itemIcon;
-        skinItemRenderer.sprite = skinItemScriptable.itemIcon;
-        shirtItemRenderer.sprite = shirtItemScriptable.itemIcon;
-        weaponItemRenderer.sprite = weaponItemScriptable.itemIcon;
-        shoeItemRenderer.sprite = shoeItemScriptable.itemIcon;
+        if (hairItemScriptable)
+            hairItemRenderer.sprite = hairItemScriptable.itemIcon;
+        else
+            hairItemRenderer.sprite = null;
+
+        if (skinItemScriptable)
+            skinItemRenderer.sprite = skinItemScriptable.itemIcon;
+        else
+            skinItemRenderer.sprite = null;
+
+        if (shirtItemScriptable)
+            shirtItemRenderer.sprite = shirtItemScriptable.itemIcon;
+        else
+            shirtItemRenderer.sprite = null;
+
+        if (weaponItemScriptable)
+            weaponItemRenderer.sprite = weaponItemScriptable.itemIcon;
+        else
+            weaponItemRenderer.sprite = null;
+
+        if (shoeItemScriptable)
+            shoeItemRenderer.sprite = shoeItemScriptable.itemIcon;
+        else
+            shoeItemRenderer.sprite = null;
+
     }
 
     public void EquipItem(ItemScriptable item)
@@ -41,21 +61,52 @@ public class PlayerSkin : MonoBehaviour
         switch (item.itemType)
         {
             case ItemScriptable.ItemType.Hair:
+                UnequipItem(hairItemScriptable);
                 hairItemScriptable = item;
                 break;
             case ItemScriptable.ItemType.Shirt:
+                UnequipItem(shirtItemScriptable);
                 shirtItemScriptable = item;
                 break;
             case ItemScriptable.ItemType.Skin:
+                UnequipItem(skinItemScriptable);
                 skinItemScriptable = item;
                 break;
             case ItemScriptable.ItemType.Shoe:
+                UnequipItem(shoeItemScriptable);
                 shoeItemScriptable = item;
                 break;
             case ItemScriptable.ItemType.Weapon:
+                UnequipItem(weaponItemScriptable);
                 weaponItemScriptable = item;
                 break;
         }
+        item.isEquipped = true;
+        UpdateItems();
+    }
+
+    public void UnequipItem(ItemScriptable item)
+    {
+        if (item == null) return;
+        switch (item.itemType)
+        {
+            case ItemScriptable.ItemType.Hair:
+                hairItemScriptable = null;
+                break;
+            case ItemScriptable.ItemType.Shirt:
+                shirtItemScriptable = null;
+                break;
+            case ItemScriptable.ItemType.Skin:
+                skinItemScriptable = null;
+                break;
+            case ItemScriptable.ItemType.Shoe:
+                shoeItemScriptable = null;
+                break;
+            case ItemScriptable.ItemType.Weapon:
+                weaponItemScriptable = null;
+                break;
+        }
+        item.isEquipped = false;
 
         UpdateItems();
     }
