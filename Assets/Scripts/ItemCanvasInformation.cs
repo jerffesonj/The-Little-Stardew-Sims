@@ -12,6 +12,7 @@ public class ItemCanvasInformation : MonoBehaviour
     public CanvasInventory inventory;
     public ItemScriptable item;
     public GameObject selectionHighlight;
+    public GameObject equippedIndicator;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,12 +31,21 @@ public class ItemCanvasInformation : MonoBehaviour
         itemIconImage.sprite = item.itemIcon;
         itemPriceText.text = item.itemPrice.ToString();
         this.item = item;
+        if (item.isEquipped)
+            SetEquippedIndicator(true);
     }
+
+    public void SetEquippedIndicator(bool value)
+    {
+        equippedIndicator.SetActive(value);
+    }
+
     public void ResetInformation()
     {
         itemNameText.text = "";
         itemIconImage.sprite = null;
         itemPriceText.text = "";
+        SetEquippedIndicator(false);
     }
     public void SetCurrentInventoryCanvasObject()
     {

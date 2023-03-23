@@ -21,4 +21,5 @@ public class ItemScriptable : ScriptableObject
         Shoe,
         Default
     }
+
 }

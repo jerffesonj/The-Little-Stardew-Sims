@@ -5,16 +5,20 @@ using UnityEngine;
 public abstract class Inventory : MonoBehaviour
 {
     public List<ItemScriptable> items = new List<ItemScriptable>();
-    // Start is called before the first frame update
-    void Start()
+    
+    protected void Awake()
     {
-        
+        ResetEquippedItems();
     }
 
-    // Update is called once per frame
-    void Update()
+    void ResetEquippedItems()
     {
-        
+        foreach (ItemScriptable item in items)
+        {
+            if (item.name == "Skin 1")
+                continue;
+            item.isEquipped = false;
+        }
     }
 
     public int NumberOfSkinsOnInventory()

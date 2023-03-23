@@ -1,27 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class PlayerCanvasInventory : CanvasInventory
 {
     public CanvasInventory shopCanvasInventory;
     public MoneyScript playerMoney;
-    // Start is called before the first frame update
+    
     void Start()
     {
         base.Start();
         playerMoney = inventory.GetComponent<MoneyScript>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            UpdateInventory();
-    }
     public void EquipItem()
     {
+        if (itemSelected.item == null)
+            return;
+        itemSelected.SetEquippedIndicator(true);
         inventory.GetComponent<PlayerSkin>().EquipItem(itemSelected.item);
     }
     public void BuyItem()
@@ -31,7 +29,7 @@ public class PlayerCanvasInventory : CanvasInventory
         if (itemInformation == null)
             return;
 
-        if (itemInformation.item.itemPrice > playerMoney.money)
+        if (itemInformation.item.itemPrice > playerMoney.Money)
         {
             Debug.Log("No cash");
             return;
@@ -67,8 +65,24 @@ public class PlayerCanvasInventory : CanvasInventory
         RemoveItem();
         UnequipItem(itemInformation.item);
     }
+    public void UnequipItem()
+    {
+        UnequipItem(itemSelected.item);
+    }
+
     public void UnequipItem(ItemScriptable item)
     {
+        if (item == null)
+            return;
+        if (item.itemType == ItemScriptable.ItemType.Skin)
+        {
+            if (inventory.NumberOfSkinsOnInventory() <= 1 || item.isEquipped)
+            {
+                Debug.Log("Can't Unequip");
+                return;
+            }
+        }
+        itemSelected.SetEquippedIndicator(false);
         inventory.GetComponent<PlayerSkin>().UnequipItem(item);
     }
 

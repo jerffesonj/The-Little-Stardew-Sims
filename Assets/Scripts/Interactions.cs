@@ -1,23 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class ShopkeeperScript : Inventory
+public class Interactions : MonoBehaviour
 {
-    public GameObject shopButton;
-
-    public PlayerMovement playerMovement;
-
-    private void Awake()
-    {
-        base.Awake();
-    }
-
+    public InteractionScriptable interactionScriptable;
+    public GameObject canvas;
+    public TMP_Text phraseText;
+    // Start is called before the first frame update
     void Start()
     {
         
     }
 
+    // Update is called once per frame
     void Update()
     {
         
@@ -27,20 +24,15 @@ public class ShopkeeperScript : Inventory
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            shopButton.SetActive(true);
-
-            
-            print("Welcome");
+            phraseText.text = interactionScriptable.phrase;
+            canvas.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            shopButton.SetActive(false);
-            playerMovement.enabled = true;
-
-            print("Goodbye");
+            canvas.SetActive(false);
         }
     }
 }
