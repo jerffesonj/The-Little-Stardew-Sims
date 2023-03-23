@@ -5,22 +5,25 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
-    private float horizontalValue = 0;
-    private float verticalValue = 0;
+
+    [SerializeField] private Vector2 playerInput;
+
+    Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float correctMovementSpeed = movementSpeed / 100;
+        float correctMovementSpeed = movementSpeed;
 
-        horizontalValue = Input.GetAxis("Horizontal");
-        verticalValue = Input.GetAxis("Vertical");
+        playerInput.x = Input.GetAxis("Horizontal");
+        playerInput.y = Input.GetAxis("Vertical");
+        playerInput = Vector2.ClampMagnitude(playerInput, 1);
 
-        transform.position += new Vector3(horizontalValue, verticalValue, 0) * correctMovementSpeed;
+        rb.velocity = new Vector3(playerInput.x, playerInput.y, 0) * correctMovementSpeed;
     }
 }

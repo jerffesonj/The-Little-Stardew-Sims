@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 979404fa1e7f9ae45b98578d0bd9059c, type: 3}
-  m_Name: ShirtItem
+  m_Name: Shirt 1
   m_EditorClassIdentifier: 
   itemName: Shirt
   itemPrice: 100

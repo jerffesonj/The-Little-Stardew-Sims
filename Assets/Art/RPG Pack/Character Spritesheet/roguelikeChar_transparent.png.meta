@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -9594,9 +9594,9 @@ TextureImporter:
       roguelikeChar_transparent_260: -1326865435
       roguelikeChar_transparent_422: 1996199241
       roguelikeChar_transparent_273: -176576239
-      roguelikeChar_transparent_354: 16574462
       roguelikeChar_transparent_400: 987615854
       roguelikeChar_transparent_421: -1417697858
+      roguelikeChar_transparent_354: 16574462
       roguelikeChar_transparent_442: 1338978200
       roguelikeChar_transparent_404: -810819575
       roguelikeChar_transparent_344: -1579517889
@@ -9612,8 +9612,8 @@ TextureImporter:
       roguelikeChar_transparent_212: 987703799
       roguelikeChar_transparent_31: 126152438
       roguelikeChar_transparent_30: -818026318
-      roguelikeChar_transparent_151: 740052165
       roguelikeChar_transparent_350: -1281699754
+      roguelikeChar_transparent_151: 740052165
       roguelikeChar_transparent_401: -311622449
       roguelikeChar_transparent_170: -1927885793
       roguelikeChar_transparent_364: -330174086
@@ -9634,16 +9634,16 @@ TextureImporter:
       roguelikeChar_transparent_175: 1715178622
       roguelikeChar_transparent_355: -465277255
       roguelikeChar_transparent_14: -1487499736
-      roguelikeChar_transparent_41: 1437494755
       roguelikeChar_transparent_65: 196941199
+      roguelikeChar_transparent_41: 1437494755
       roguelikeChar_transparent_70: 1845282880
+      roguelikeChar_transparent_160: 234445163
       roguelikeChar_transparent_405: -1871456361
       roguelikeChar_transparent_385: 1585400017
-      roguelikeChar_transparent_160: 234445163
+      roguelikeChar_transparent_300: 170902925
       roguelikeChar_transparent_140: 569598041
       roguelikeChar_transparent_92: -2020597007
       roguelikeChar_transparent_208: 2137601290
-      roguelikeChar_transparent_300: 170902925
       roguelikeChar_transparent_348: -1038027950
       roguelikeChar_transparent_131: -1903242092
       roguelikeChar_transparent_225: -1412061356
@@ -9708,15 +9708,15 @@ TextureImporter:
       roguelikeChar_transparent_247: 1964317359
       roguelikeChar_transparent_128: -1438801277
       roguelikeChar_transparent_171: 195463230
-      roguelikeChar_transparent_81: -468626755
-      roguelikeChar_transparent_157: -851463875
+      roguelikeChar_transparent_425: 147189291
       roguelikeChar_transparent_187: 160439457
       roguelikeChar_transparent_141: 2113500292
-      roguelikeChar_transparent_158: -1386711901
       roguelikeChar_transparent_211: -680855527
-      roguelikeChar_transparent_425: 147189291
+      roguelikeChar_transparent_158: -1386711901
+      roguelikeChar_transparent_81: -468626755
       roguelikeChar_transparent_114: 608017646
       roguelikeChar_transparent_276: 703280407
+      roguelikeChar_transparent_157: -851463875
       roguelikeChar_transparent_182: -580241517
       roguelikeChar_transparent_406: 1198884929
       roguelikeChar_transparent_106: 473588778
@@ -9726,8 +9726,8 @@ TextureImporter:
       roguelikeChar_transparent_308: 1696816812
       roguelikeChar_transparent_443: 1461315848
       roguelikeChar_transparent_130: -1478859193
-      roguelikeChar_transparent_72: -731380594
       roguelikeChar_transparent_222: 526657716
+      roguelikeChar_transparent_72: -731380594
       roguelikeChar_transparent_9: -405705389
       roguelikeChar_transparent_254: 1644818055
       roguelikeChar_transparent_200: 382384702
@@ -9808,11 +9808,12 @@ TextureImporter:
       roguelikeChar_transparent_263: 1074444803
       roguelikeChar_transparent_279: 681137151
       roguelikeChar_transparent_156: -177738160
-      roguelikeChar_transparent_113: 27715281
+      roguelikeChar_transparent_343: 1994030184
       roguelikeChar_transparent_132: -1718881227
       roguelikeChar_transparent_195: -760299066
-      roguelikeChar_transparent_343: 1994030184
+      roguelikeChar_transparent_113: 27715281
       roguelikeChar_transparent_280: -746303758
+      roguelikeChar_transparent_441: -711949146
       roguelikeChar_transparent_259: -2040105103
       roguelikeChar_transparent_428: 456340212
       roguelikeChar_transparent_126: -1408937557
@@ -9823,7 +9824,6 @@ TextureImporter:
       roguelikeChar_transparent_153: -113105428
       roguelikeChar_transparent_358: 2046177960
       roguelikeChar_transparent_183: 1652457111
-      roguelikeChar_transparent_441: -711949146
       roguelikeChar_transparent_232: 1684771280
       roguelikeChar_transparent_44: 67229485
       roguelikeChar_transparent_437: 1565284545
@@ -9863,12 +9863,12 @@ TextureImporter:
       roguelikeChar_transparent_43: 759547686
       roguelikeChar_transparent_0: -1727188368
       roguelikeChar_transparent_10: -1049446894
-      roguelikeChar_transparent_75: -915054652
       roguelikeChar_transparent_342: 665135982
       roguelikeChar_transparent_96: 529645100
       roguelikeChar_transparent_295: 1851543786
       roguelikeChar_transparent_444: 1361531679
       roguelikeChar_transparent_297: 1946701333
+      roguelikeChar_transparent_75: -915054652
       roguelikeChar_transparent_427: 599298588
       roguelikeChar_transparent_433: 1768432536
       roguelikeChar_transparent_426: -520579956

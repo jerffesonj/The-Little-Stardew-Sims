@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -36039,8 +36039,8 @@ TextureImporter:
       roguelikeSheet_transparent_1122: -1177187778
       roguelikeSheet_transparent_1566: -1321099263
       roguelikeSheet_transparent_986: -476224559
-      roguelikeSheet_transparent_895: 399095504
       roguelikeSheet_transparent_1035: 1332212870
+      roguelikeSheet_transparent_895: 399095504
       roguelikeSheet_transparent_844: 1411832078
       roguelikeSheet_transparent_1616: 581994473
       roguelikeSheet_transparent_654: -263740541
@@ -36152,9 +36152,9 @@ TextureImporter:
       roguelikeSheet_transparent_115: -2138820358
       roguelikeSheet_transparent_1567: -1312705104
       roguelikeSheet_transparent_1597: 409708583
-      roguelikeSheet_transparent_954: -1321692861
-      roguelikeSheet_transparent_1666: 646907043
       roguelikeSheet_transparent_1163: -1561331651
+      roguelikeSheet_transparent_1666: 646907043
+      roguelikeSheet_transparent_954: -1321692861
       roguelikeSheet_transparent_826: -556104630
       roguelikeSheet_transparent_0: 122822334
       roguelikeSheet_transparent_1020: -518967391
