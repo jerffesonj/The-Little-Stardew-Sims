@@ -21,6 +21,7 @@ public class PlayerSkin : MonoBehaviour
     void Start()
     {
         UpdateItems();
+        skinItemScriptable.isEquipped = true;
     }
 
     void Update()

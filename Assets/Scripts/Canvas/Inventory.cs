@@ -15,8 +15,6 @@ public abstract class Inventory : MonoBehaviour
     {
         foreach (ItemScriptable item in items)
         {
-            if (item.name == "Skin 1")
-                continue;
             item.isEquipped = false;
         }
     }

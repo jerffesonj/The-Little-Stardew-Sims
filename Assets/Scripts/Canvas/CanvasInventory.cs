@@ -1,37 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CanvasInventory : MonoBehaviour
 {
-    public Inventory inventory;
-    public List<GameObject> itemsCanvas;
-    public GameObject itemCanvasPrefab;
-    public RectTransform itemCanvasParent;
+    [SerializeField] protected Inventory inventory;
+    
+    [SerializeField] private GameObject itemCanvasPrefab;
+    [SerializeField] private RectTransform itemCanvasParent;
+    [SerializeField] private List<GameObject> itemsCanvas;
 
-    public ItemCanvasInformation itemSelected;
-    // Start is called before the first frame update
+    [SerializeField] private ItemCanvasInformation itemSelected;
+    protected InventoryInformation inventoryInformation;
+
+    public ItemCanvasInformation ItemSelected { get => itemSelected; set => itemSelected = value; }
+
+    private void OnEnable()
+    {
+        UpdateInventory();
+    }
+
     protected void Start()
     {
-        //InitializeInventory();
+        inventoryInformation = GetComponent<InventoryInformation>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void InitializeInventory()
-    {
-        print(inventory.items.Count);
-        for (int i = 0; i < inventory.items.Count -1; i++)
-        {
-            print(i + " teste");
-            GameObject itemCanvasClone = InstantiateItemCanvas();
-            itemCanvasClone.GetComponent<ItemCanvasInformation>().SetInformation(inventory.items[i]);
-        }
-    }
     public void UpdateInventory()
     {
         ResetInventory();
@@ -44,7 +38,6 @@ public class CanvasInventory : MonoBehaviour
                 itemCanvasClone = itemsCanvas[i];
                 itemCanvasClone.GetComponent<ItemCanvasInformation>().SetInformation(inventory.items[i]);
                 itemCanvasClone.SetActive(true);
-
             }
             else
             {
@@ -53,12 +46,12 @@ public class CanvasInventory : MonoBehaviour
             }
         }
     }
+
     void ResetInventory()
     {
         for (int i = 0; i < itemsCanvas.Count; i++)
         {
-            GameObject itemCanvasClone = null;
-            itemCanvasClone = itemsCanvas[i];
+            GameObject itemCanvasClone = itemsCanvas[i];
             itemCanvasClone.GetComponent<ItemCanvasInformation>().ResetInformation();
             itemCanvasClone.SetActive(false);
         }
@@ -66,33 +59,29 @@ public class CanvasInventory : MonoBehaviour
 
     GameObject InstantiateItemCanvas()
     {
-        GameObject itemCanvasClone  = Instantiate(itemCanvasPrefab, itemCanvasParent);
+        GameObject itemCanvasClone = Instantiate(itemCanvasPrefab, itemCanvasParent);
         itemCanvasClone.GetComponent<ItemCanvasInformation>().inventory = this;
         itemsCanvas.Add(itemCanvasClone);
         return itemCanvasClone;
     }
+   
     public void RemoveItem()
     {
-        inventory.items.Remove(itemSelected.item);
-        print(itemSelected.item.itemName);
-        itemSelected.RemoveHighlight();
-        itemSelected = null;
+        inventory.items.Remove(ItemSelected.item);
+        ItemSelected.RemoveHighlight();
+        ItemSelected = null;
         UpdateInventory();
     }
     public void AddItem(ItemScriptable item)
     {
         inventory.items.Add(item);
-        
         UpdateInventory();
     }
 
+
+    //Called by shopkeeper button
     public void SetInventory(Inventory inventory)
     {
         this.inventory = inventory;
-    }
-
-    private void OnEnable()
-    {
-        UpdateInventory();
     }
 }

@@ -13,17 +13,6 @@ public class ItemCanvasInformation : MonoBehaviour
     public ItemScriptable item;
     public GameObject selectionHighlight;
     public GameObject equippedIndicator;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetInformation(ItemScriptable item)
     {
@@ -49,9 +38,10 @@ public class ItemCanvasInformation : MonoBehaviour
     }
     public void SetCurrentInventoryCanvasObject()
     {
-        if(inventory.itemSelected != null)
-            inventory.itemSelected.RemoveHighlight();
-        inventory.itemSelected = this;
+        if(inventory.ItemSelected != null)
+            inventory.ItemSelected.RemoveHighlight();
+
+        inventory.ItemSelected = this;
         selectionHighlight.SetActive(true);
     }
 

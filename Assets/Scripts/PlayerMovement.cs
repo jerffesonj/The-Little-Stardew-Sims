@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
-
-    [SerializeField] private Vector2 playerInput;
+    [SerializeField] private Animator anim;
+    private Vector2 playerInput;
 
     Rigidbody2D rb;
+
+    public bool isMoving = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
         playerInput = Vector2.ClampMagnitude(playerInput, 1);
 
         rb.velocity = new Vector3(playerInput.x, playerInput.y, 0) * correctMovementSpeed;
+
+        isMoving = rb.velocity != Vector2.zero;
+        
+        anim.SetBool("Moving", isMoving);
     }
 
     public void StopMovement()

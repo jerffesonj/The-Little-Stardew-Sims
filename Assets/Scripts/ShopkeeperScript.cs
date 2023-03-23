@@ -13,24 +13,11 @@ public class ShopkeeperScript : Inventory
         base.Awake();
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             shopButton.SetActive(true);
-
-            
-            print("Welcome");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -39,8 +26,6 @@ public class ShopkeeperScript : Inventory
         {
             shopButton.SetActive(false);
             playerMovement.enabled = true;
-
-            print("Goodbye");
         }
     }
 }
