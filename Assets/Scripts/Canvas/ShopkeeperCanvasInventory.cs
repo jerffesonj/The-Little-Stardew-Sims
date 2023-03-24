@@ -23,10 +23,12 @@ public class ShopkeeperCanvasInventory : CanvasInventory
         if (itemInformation.Item.ItemPrice > playerMoney.Money)
         {
             inventoryInformation.ShowInformation("No cash");
+            PlayErrorSound();
             return;
         }
 
         inventoryInformation.ShowInformation("Item purchased");
+        PlayCorrectSound();
 
         playerMoney.RemoveMoney(itemInformation.Item.ItemPrice);
 

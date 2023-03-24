@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlayerSkin : MonoBehaviour
 {
     [Header("Player Sprite Renderers")]
-    public SpriteRenderer hairItemRenderer;
-    public SpriteRenderer skinItemRenderer;
-    public SpriteRenderer shirtItemRenderer;
-    public SpriteRenderer weaponItemRenderer;
-    public SpriteRenderer shoeItemRenderer;
+    [SerializeField] private SpriteRenderer hairItemRenderer;
+    [SerializeField] private SpriteRenderer skinItemRenderer;
+    [SerializeField] private SpriteRenderer shirtItemRenderer;
+    [SerializeField] private SpriteRenderer weaponItemRenderer;
+    [SerializeField] private SpriteRenderer shoeItemRenderer;
 
     [Header("Player Item References")]
-    public ItemScriptable hairItemScriptable;
-    public ItemScriptable skinItemScriptable;
-    public ItemScriptable shirtItemScriptable;
-    public ItemScriptable weaponItemScriptable;
-    public ItemScriptable shoeItemScriptable;
+    [SerializeField] private ItemScriptable hairItemScriptable;
+    [SerializeField] private ItemScriptable skinItemScriptable;
+    [SerializeField] private ItemScriptable shirtItemScriptable;
+    [SerializeField] private ItemScriptable weaponItemScriptable;
+    [SerializeField] private ItemScriptable shoeItemScriptable;
 
     void Start()
     {

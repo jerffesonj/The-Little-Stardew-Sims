@@ -7,6 +7,11 @@ public class CanvasInventory : MonoBehaviour
 {
     [SerializeField] protected Inventory inventory;
 
+    [Header("Audios")]
+    [SerializeField] protected AudioSource audioSource;
+    [SerializeField] protected AudioClip errorSound;
+    [SerializeField] protected AudioClip correctSound;
+
     [Header("Instantiate objects")]
     [SerializeField] private GameObject itemCanvasPrefab;
     [SerializeField] private RectTransform itemCanvasParent;
@@ -79,10 +84,20 @@ public class CanvasInventory : MonoBehaviour
         UpdateInventory();
     }
 
-
+    protected void PlayCorrectSound()
+    {
+        audioSource.PlayOneShot(correctSound);
+    }
+    
+    protected void PlayErrorSound()
+    {
+        audioSource.PlayOneShot(errorSound);
+    }
     //Called by shopkeeper button
     public void SetInventory(Inventory inventory)
     {
         this.inventory = inventory;
     }
+
+
 }

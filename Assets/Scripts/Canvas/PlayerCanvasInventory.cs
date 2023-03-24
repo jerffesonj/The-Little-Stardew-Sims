@@ -23,6 +23,7 @@ public class PlayerCanvasInventory : CanvasInventory
             return;
 
         playerSkin.EquipItem(ItemSelected.Item);
+        PlayCorrectSound();
 
         ResetEquippedIndicator(ItemSelected.Item);
         ItemSelected.SetEquippedIndicator(true);
@@ -50,14 +51,16 @@ public class PlayerCanvasInventory : CanvasInventory
         if (itemData.Item.IsEquipped)
         {
             inventoryInformation.ShowInformation("Can't sell equipped items");
+            PlayErrorSound();
             return;
         }
 
         playerMoney.AddMoney(itemData.Item.ItemPrice);
-
+        PlayCorrectSound();
         shopCanvasInventory.AddItem(itemData.Item);
         RemoveItem();
-        UnequipItem(itemData.Item);
+        if(itemData.Item.IsEquipped)
+            UnequipItem(itemData.Item);
     }
     public void UnequipItem()
     {
@@ -68,9 +71,12 @@ public class PlayerCanvasInventory : CanvasInventory
     {
         if (item == null)
             return;
+
         if (!item.IsEquipped)
         {
             inventoryInformation.ShowInformation("Item not equipped");
+            PlayErrorSound();
+
             return;
         }
 
@@ -79,6 +85,8 @@ public class PlayerCanvasInventory : CanvasInventory
             if (inventory.NumberOfSkinsOnInventory() <= 1 || item.IsEquipped)
             {
                 inventoryInformation.ShowInformation("Can't unequip");
+                PlayErrorSound();
+
                 return;
             }
         }
