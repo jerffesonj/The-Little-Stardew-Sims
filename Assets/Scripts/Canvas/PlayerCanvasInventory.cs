@@ -8,11 +8,13 @@ public class PlayerCanvasInventory : CanvasInventory
     [SerializeField] private CanvasInventory shopCanvasInventory;
     
     private MoneyScript playerMoney;
+    private PlayerSkin playerSkin;
 
     void Start()
     {
         base.Start();
         playerMoney = inventory.GetComponent<MoneyScript>();
+        playerSkin = inventory.GetComponent<PlayerSkin>();
     }
 
     public void EquipItem()
@@ -20,7 +22,7 @@ public class PlayerCanvasInventory : CanvasInventory
         if (ItemSelected.Item == null)
             return;
 
-        inventory.GetComponent<PlayerSkin>().EquipItem(ItemSelected.Item);
+        playerSkin.EquipItem(ItemSelected.Item);
 
         ResetEquippedIndicator(ItemSelected.Item);
         ItemSelected.SetEquippedIndicator(true);
@@ -45,15 +47,12 @@ public class PlayerCanvasInventory : CanvasInventory
         if (itemData == null)
             return;
 
-        if(itemData.Item.TypeItem == ItemScriptable.ItemType.Skin)
+        if (itemData.Item.IsEquipped)
         {
-            if(inventory.NumberOfSkinsOnInventory() <= 1 || itemData.Item.IsEquipped)
-            {
-
-                inventoryInformation.ShowInformation("Can't sell item");
-                return;
-            }
+            inventoryInformation.ShowInformation("Can't sell equipped items");
+            return;
         }
+
         playerMoney.AddMoney(itemData.Item.ItemPrice);
 
         shopCanvasInventory.AddItem(itemData.Item);
@@ -83,7 +82,8 @@ public class PlayerCanvasInventory : CanvasInventory
                 return;
             }
         }
+
         ItemSelected.SetEquippedIndicator(false);
-        inventory.GetComponent<PlayerSkin>().UnequipItem(item);
+        playerSkin.UnequipItem(item);
     }
 }
