@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979404fa1e7f9ae45b98578d0bd9059c, type: 3}
   m_Name: Shoe 5
   m_EditorClassIdentifier: 
-  itemName: Shoe
+  itemName: Expensive Blue Shoes
   itemPrice: 1500
   itemIcon: {fileID: 695402538, guid: cadb87643e5d6c840940b25f5c74b716, type: 3}
   typeItem: 4
+  isEquipped: 0

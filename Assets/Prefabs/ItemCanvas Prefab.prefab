@@ -256,7 +256,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -555,10 +555,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemNameText: {fileID: 541578783872028884}
-  itemIconImage: {fileID: 541578783041302605}
   itemPriceText: {fileID: 541578784195958747}
-  inventory: {fileID: 0}
-  item: {fileID: 0}
+  itemIconImage: {fileID: 541578783041302605}
   selectionHighlight: {fileID: 6525246873880371586}
   equippedIndicator: {fileID: 1682279590496301414}
 --- !u!1 &662665229650669161
