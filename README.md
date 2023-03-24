@@ -14,7 +14,7 @@ Game made for a task interview at Blue Gravity
   <img src="https://user-images.githubusercontent.com/59349985/227663042-a40c4d97-2f91-40c0-811c-97575f40c653.png" width="35%" height="35%">
 </p>
 <p align="center">
- Inventory screeshot
+ Inventory Screenshot
 </p>
 
 # How to Play
