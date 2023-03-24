@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5278b0fb1f226943b4c2020dc17a359, type: 3}
   m_Name: WeaponShopSpeech
   m_EditorClassIdentifier: 
-  phrase: Come! I got some real weapons here!
+  phrase: Come! I got some <b>REAL</b> weapons here!

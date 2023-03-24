@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5278b0fb1f226943b4c2020dc17a359, type: 3}
   m_Name: SignSkinShop
   m_EditorClassIdentifier: 
-  phrase: 'Ralph: The Skin Shop Owner'
+  phrase: Lynyrd the Skin <i>Nerd</i>
