@@ -1,6 +1,6 @@
 # The Little Stardew Sims
 
-Game made for a task interview at Blue Gravity
+Game made for a task interview at Blue Gravity Studios
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/59349985/227663040-05f1f29e-7851-4d13-8444-211f08cb903c.png" width="35%" height="35%">
